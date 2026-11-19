@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#08132d">
+  <title>Statify — Belajar Statistik Interaktif</title>
+  <link rel="stylesheet" href="soal1.css">
+</head>
+<body>
+
+  <div class="aurora a1"></div><div class="aurora a2"></div>
+  <header class="navbar">
+    <a class="brand" href="#beranda" aria-label="Beranda Statify">
+      <span class="brand-mark">Σ</span><span>Stat<span>ify</span></span>
+    </a>
+    <button class="menu" id="menuBtn" aria-label="Buka menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav id="navMenu" aria-label="Navigasi utama">
+      <a class="active" href="#beranda">Beranda</a><a href="#kalkulator">Kalkulator</a><a href="#hasil">Hasil</a><a href="#rumus">Rumus</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="hero" id="beranda">
+      <div class="hero-copy">
+        <span class="eyebrow"><b>●</b> Platform Statistik Modern</span>
+        <h1>Jelajahi data.<br><span>Temukan maknanya.</span></h1>
+        <p>Analisis statistik deskriptif jadi lebih mudah, cepat, dan visual dalam satu dashboard interaktif.</p>
+        <div class="hero-actions"><a class="btn primary" href="#kalkulator">Mulai Menghitung <b>→</b></a><a class="btn ghost" href="#rumus">Pelajari Rumus</a></div>
+      </div>
+      <div class="hero-visual" aria-label="Ilustrasi analisis statistik">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="formula-card"><span>μ =</span><strong>Σx<small>n</small></strong></div>
+        <div class="chart-card">
+          <div class="chart-head"><span>Distribusi Data</span><span class="live"><i></i> Live</span></div>
+          <div class="bars"><i style="--h:38%"></i><i style="--h:58%"></i><i style="--h:48%"></i><i style="--h:82%"></i><i style="--h:68%"></i><i style="--h:92%"></i><i style="--h:72%"></i></div>
+        </div>
+        <div class="stat-float"><span>Rata-rata</span><strong>78.6</strong><em>↗ 12%</em></div>
+        <div class="sigma">σ</div>
+      </div>
+    </section>
+
+    <section class="dashboard">
+      <article class="mini-card"><div class="icon cyan">Σ</div><div><span>Ukuran Data</span><strong id="quickN">—</strong></div></article>
+      <article class="mini-card"><div class="icon purple">μ</div><div><span>Nilai Rata-rata</span><strong id="quickMean">—</strong></div></article>
+      <article class="mini-card"><div class="icon blue">σ</div><div><span>Standar Deviasi</span><strong id="quickSd">—</strong></div></article>
+      <article class="mini-card"><div class="icon pink">↗</div><div><span>Status Analisis</span><strong id="quickStatus">Siap</strong></div></article>
+    </section>
+
+    <section class="workspace" id="kalkulator">
+      <div class="card input-card">
+        <div class="card-head"><div><span class="step">01</span><h2>Masukkan Data</h2></div><button id="btnContoh" class="text-btn">Gunakan contoh</button></div>
+        <label for="dataManual">Data numerik</label>
+        <textarea id="dataManual" placeholder="Contoh: 70 85 90 65 85 100 40" spellcheck="false"></textarea>
+        <div class="format"><span>Pisahkan dengan spasi, koma, titik koma, atau baris baru</span><b>Desimal: titik</b></div>
+        <label class="upload" for="fileCsv"><span>⬆</span><div><strong>Unggah file CSV</strong><small>atau tarik & letakkan file di sini</small></div></label>
+        <input type="file" id="fileCsv" accept=".csv,.txt" hidden>
+        <div class="actions"><button id="btnHitung" class="btn primary calculate">Proses & Hitung <b>→</b></button><button id="btnReset" class="btn ghost">Reset</button></div>
+        <div id="pesan" role="alert"></div>
+      </div>
+
+      <div class="card result-card" id="hasil">
+        <div class="card-head"><div><span class="step">02</span><h2>Hasil Perhitungan</h2></div><span class="badge">Statistik deskriptif</span></div>
+        <div class="empty-state" id="emptyState"><div class="empty-icon">Σ</div><h3>Belum ada hasil</h3><p>Masukkan data lalu tekan <b>Proses & Hitung</b></p></div>
+        <div class="gulir" id="tabelWrap" hidden><table><thead><tr><th>No.</th><th>Ukuran statistik</th><th>Hasil</th></tr></thead><tbody id="isiTabel"></tbody></table></div>
+      </div>
+    </section>
+
+    <section class="analysis-grid">
+      <div class="card chart-card-large" id="kartuGrafik">
+        <div class="card-head"><div><span class="step">03</span><h2>Histogram Distribusi</h2></div><span class="legend"><i></i> Frekuensi</span></div>
+        <div class="chart-wrap"><canvas id="grafik" width="720" height="320"></canvas></div>
+      </div>
+      <aside class="card formula-card-large" id="rumus">
+        <div class="card-head"><div><span class="step">04</span><h2>Rumus Utama</h2></div></div>
+        <div class="formula"><span>Mean</span><strong>x̄ = Σx / n</strong></div>
+        <div class="formula"><span>Varians sampel</span><strong>s² = Σ(x − x̄)² / (n − 1)</strong></div>
+        <div class="formula"><span>Standar deviasi</span><strong>s = √s²</strong></div>
+        <div class="formula"><span>IQR</span><strong>IQR = Q3 − Q1</strong></div>
+      </aside>
+    </section>
+
+  </main>
+
+  <footer><div class="brand footer-brand"><span class="brand-mark">Σ</span><span>Stat<span>ify</span></span></div><p>Belajar statistik menjadi lebih jelas dengan data dan visualisasi.</p><span>© 2026 Statify</span></footer>
+  <script src="soal1.js"></script>
+</body>
+</html>
