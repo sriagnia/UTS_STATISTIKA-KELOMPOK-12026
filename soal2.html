@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#07152f">
+  <title>ProbLab — Belajar Probabilitas</title>
+  <link rel="stylesheet" href="soal2.css">
+</head>
+<body>
+  <nav class="navbar" aria-label="Navigasi utama">
+    <a class="brand" href="#top" aria-label="ProbLab beranda"><span class="brand-mark">∿</span><span>Prob<span>Lab</span></span></a>
+    <button class="menu-btn" id="menuBtn" aria-label="Buka menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <div class="nav-links" id="navLinks"><a class="active" href="#top">Beranda</a><a href="#materi">Materi</a><a href="#kalkulator">Kalkulator</a><a href="#tentang">Tentang</a></div>
+  </nav>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow"><span>✦</span> Learning Dashboard</div>
+        <h1>Ubah angka menjadi <span>pemahaman.</span></h1>
+        <p>Pelajari konsep probabilitas dan Teorema Bayes melalui kalkulator interaktif yang jelas, cepat, dan mudah dipahami.</p>
+        <div class="hero-actions"><a class="btn-primary" href="#kalkulator">Mulai belajar <b>→</b></a><a class="btn-ghost" href="#rumus">Lihat rumus <b>ƒ</b></a></div>
+      </div>
+      <div class="hero-visual" aria-label="Ilustrasi probabilitas">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="formula-card formula-one">P(A ∩ B)</div><div class="formula-card formula-two">P(A|B)</div>
+        <div class="probability-dial"><span>68%</span><small>Probabilitas</small></div>
+        <div class="dot d1"></div><div class="dot d2"></div><div class="dot d3"></div>
+      </div>
+    </section>
+    <section class="stat-grid" id="materi" aria-label="Ringkasan materi">
+      <article class="stat-card"><div class="stat-icon purple">A</div><div><small>Materi Aktif</small><strong>3 Topik</strong></div><span class="trend">+12%</span></article>
+      <article class="stat-card"><div class="stat-icon cyan">∩</div><div><small>Fokus Utama</small><strong>Probabilitas</strong></div><span class="trend">85%</span></article>
+      <article class="stat-card"><div class="stat-icon blue">ƒ</div><div><small>Mode Belajar</small><strong>Interaktif</strong></div><span class="trend">100%</span></article>
+    </section>
+    <section class="workspace" id="kalkulator">
+      <header class="section-heading"><div><span class="kicker">Kalkulator interaktif</span><h2>Eksplorasi Perhitungan</h2></div><div class="status"><i></i> Siap digunakan</div></header>
+      <div class="tab tab-dalam" role="tablist" aria-label="Jenis kalkulator">
+        <button class="aktif" data-tab="dasar" role="tab"><span>01</span> Probabilitas Dasar</button>
+        <button data-tab="bersyarat" role="tab"><span>02</span> Bersyarat</button>
+        <button data-tab="bayes" role="tab"><span>03</span> Teorema Bayes</button>
+      </div>
+
+      <div class="calculator-grid">
+        <article class="panel calculator" id="dasar">
+          <div class="panel-title"><div class="title-icon">∩</div><div><small>Modul 01</small><h3>Probabilitas Dasar</h3></div></div>
+          <div class="fields two"><div><label>P(A) <span>0—1</span></label><input id="pA" value="0,3" inputmode="decimal"></div><div><label>P(B) <span>0—1</span></label><input id="pB" value="0,4" inputmode="decimal"></div></div>
+          <label>Hubungan kejadian A dan B</label><select id="relasi"><option value="lepas">Saling lepas</option><option value="independen">Independen</option><option value="umum">Diketahui P(A ∩ B)</option></select>
+          <div id="kotakIrisan" hidden><label>P(A ∩ B) <span>0—1</span></label><input id="pAB" value="0,12" inputmode="decimal"></div>
+          <button class="hitung" id="btnDasar">Hitung sekarang <b>→</b></button>
+          <div class="galat" id="galatDasar"></div>
+          <div class="hasil" id="hasilDasar" hidden></div>
+        </article>
+        <article class="panel calculator" id="bersyarat" hidden>
+          <div class="panel-title"><div class="title-icon">A|B</div><div><small>Modul 02</small><h3>Probabilitas Bersyarat</h3></div></div>
+          <div class="formula-banner">P(A|B) = <b>P(A ∩ B)</b> / P(B)</div>
+          <div class="fields two"><div><label>P(A ∩ B)</label><input id="cAB" value="0,12" inputmode="decimal"></div><div><label>P(B)</label><input id="cB" value="0,4" inputmode="decimal"></div></div>
+          <button class="hitung" id="btnBersyarat">Hitung sekarang <b>→</b></button>
+          <div class="galat" id="galatBersyarat"></div><div class="hasil" id="hasilBersyarat" hidden></div>
+        </article>
+        <article class="panel calculator" id="bayes" hidden>
+          <div class="panel-title"><div class="title-icon">B</div><div><small>Modul 03</small><h3>Teorema Bayes</h3></div></div>
+          <div class="fields bayes-fields"><div><label>Prevalensi phishing (%)</label><input id="prev" value="8" inputmode="decimal"></div><div><label>Sensitivitas (%)</label><input id="sens" value="92" inputmode="decimal"></div><div><label>False positive (%)</label><input id="fp" value="3" inputmode="decimal"></div></div>
+          <button class="hitung" id="btnBayes">Hitung sekarang <b>→</b></button>
+          <div class="galat" id="galatBayes"></div><div class="hasil" id="hasilBayes" hidden></div>
+        </article>
+        <aside class="panel insight">
+          <div class="panel-title"><div><small>Visualisasi</small><h3>Distribusi hasil</h3></div><button class="more-btn" aria-label="Opsi visualisasi">•••</button></div>
+          <div class="chart" id="chart"><div class="chart-grid"><i></i><i></i><i></i><i></i></div><div class="bars"><div class="bar-wrap"><div class="bar cyan" id="barA" style="height:30%"><span id="valA">30%</span></div><small>P(A)</small></div><div class="bar-wrap"><div class="bar purple" id="barB" style="height:40%"><span id="valB">40%</span></div><small>P(B)</small></div><div class="bar-wrap"><div class="bar blue" id="barAB" style="height:12%"><span id="valAB">12%</span></div><small>P(A∩B)</small></div></div></div>
+          <div class="formula-box" id="rumus"><small>Rumus utama</small><strong>P(A ∪ B) = P(A) + P(B) − P(A ∩ B)</strong></div>
+        </aside>
+      </div>
+    </section>
+  </main>
+  <footer id="tentang"><div class="brand"><span class="brand-mark">∿</span><span>Prob<span>Lab</span></span></div><p>Belajar matematika dengan cara yang lebih visual.</p><span>© 2026 ProbLab</span></footer>
+  <script src="soal2.js"></script>
+</body>
+</html>
